@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
 
             StringBuffer titleBuffer = new StringBuffer();
             for(DrugModel.subjects.Drugs.topics title : drugModelList.get(position).getTopicList()) {  //for each loop sets titles
-                titleBuffer.append(title.getTitle());
+                titleBuffer.append(title.getTitle() + ", ");
             }
             Titles.setText(titleBuffer.toString());
 
@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
 
             StringBuffer descriptionBuffer = new StringBuffer();
             for(DrugModel.subjects.Drugs.topics description : drugModelList.get(position).getTopicList()) {  //for each loop sets titles
-                titleBuffer.append(description.getDescription() + "\n");
+                descriptionBuffer.append(description.getDescription() + ", ");
             }
             Description.setText(descriptionBuffer.toString());
 
