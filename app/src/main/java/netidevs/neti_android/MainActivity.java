@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -19,7 +18,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 connection.connect();
                 InputStream stream = connection.getInputStream();        // create input stream to read data
                 reader = new BufferedReader(new InputStreamReader(stream)); //buffered read for input stream
-                StringBuffer buffer = new StringBuffer();
+                StringBuilder buffer = new StringBuilder();
                 String line = "";
                 while ((line = reader.readLine()) != null) {   //read all the JSON data
                     buffer.append(line);
@@ -116,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //This is a custom adapter to display JSON values via list view
     public class drugAdapter extends ArrayAdapter{
 
         private List<DrugModel.subjects.Drugs> drugModelList;
@@ -142,23 +141,23 @@ public class MainActivity extends AppCompatActivity {
 
             Subject.setText(drugModelList.get(position).getName());  //set the subject
 
-            StringBuffer tagBuffer = new StringBuffer();
+            StringBuilder tagBuffer = new StringBuilder();
             for(DrugModel.subjects.Drugs.tags tag : drugModelList.get(position).getTagList()){   //for each loop sets Tags
-                tagBuffer.append(tag.getTagName() + ", ");
+                tagBuffer.append(tag.getTagName()).append(", ");
             }
             Tags.setText(tagBuffer.toString());
 
-            StringBuffer titleBuffer = new StringBuffer();
+            StringBuilder titleBuffer = new StringBuilder();
             for(DrugModel.subjects.Drugs.topics title : drugModelList.get(position).getTopicList()) {  //for each loop sets titles
-                titleBuffer.append(title.getTitle() + ", ");
+                titleBuffer.append(title.getTitle()).append(", ");
             }
             Titles.setText(titleBuffer.toString());
 
             Toxicity.setText(drugModelList.get(position).getToxicity());   //set the toxicity
 
-            StringBuffer descriptionBuffer = new StringBuffer();
+            StringBuilder descriptionBuffer = new StringBuilder();
             for(DrugModel.subjects.Drugs.topics description : drugModelList.get(position).getTopicList()) {  //for each loop sets titles
-                descriptionBuffer.append(description.getDescription() + ", ");
+                descriptionBuffer.append(description.getDescription()).append(", ");
             }
             Description.setText(descriptionBuffer.toString());
 
