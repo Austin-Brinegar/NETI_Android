@@ -89,8 +89,9 @@ public class MainActivity extends AppCompatActivity {
                     }
                     drugModel.setTopicList(TopicList);  //set the object list = the instance list
                     DrugList.add(drugModel);           //add the whole drug to a list
+                   drugModel.setDrugList(DrugList);   //set the object list = the instance list
                 }
-                DrugModel.subjects.Drugs.setDrugList(DrugList);   //set the object list = the instance list
+
                 return DrugList;  //return subjects in JSON
 
             } catch (IOException | JSONException e) {

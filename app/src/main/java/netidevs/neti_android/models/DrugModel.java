@@ -9,64 +9,64 @@ import java.util.List;
 public class DrugModel {
    public static class subjects{
        public static class Drugs{
-           private static String name;
-           public static List<tags> tagList;
-           public static List<topics> topicList;
-           public static List<Drugs> drugList;
+           private String name;
+           public List<tags> tagList;
+           public List<topics> topicList;
+           public List<Drugs> drugList;
 
-           public static List<Drugs> getDrugList() {
+           public List<Drugs> getDrugList() {
                return drugList;
            }
 
-           public static void setDrugList(List<Drugs> drugList) {
-               Drugs.drugList = new ArrayList<>(drugList);
+           public void setDrugList(List<Drugs> DrugList) {
+               drugList = new ArrayList<>(DrugList);
            }
 
-           public static List<tags> getTagList() {
+           public List<tags> getTagList() {
                return tagList;
            }
 
-           public static void setTagList(List<tags> tagList) {
-               Drugs.tagList = new ArrayList<tags>(tagList);
+           public void setTagList(List<tags> TagList) {
+               tagList = new ArrayList<tags>(TagList);
            }
 
-           public static List<topics> getTopicList() {
+           public List<topics> getTopicList() {
                return topicList;
            }
 
-           public static void setTopicList(List<topics> topicList) {
-               Drugs.topicList = new ArrayList<topics>(topicList);
+           public void setTopicList(List<topics> TopicList) {
+               topicList = new ArrayList<topics>(TopicList);
            }
 
-           public static String getName() {
+           public String getName() {
                return name;
            }
 
-           public static void setName(String Sname) {
+           public void setName(String Sname) {
                name = Sname;
            }
 
            public static class tags{
-               private static String tagName;
+               private String tagName;
 
                public String getTagName() {
                    return tagName;
                }
 
-               public static void setTagName(String StagName) {
+               public void setTagName(String StagName) {
                    tagName = StagName;
                }
            }
 
            public static class topics{
-               private static String description;
-               private static String title;
+               private String description;
+               private String title;
 
                public String getDescription() {
                    return description;
                }
 
-               public static void setDescription(String Sdescription) {
+               public void setDescription(String Sdescription) {
                    description = Sdescription;
                }
 
@@ -74,18 +74,18 @@ public class DrugModel {
                    return title;
                }
 
-               public static void setTitle(String Stitle) {
-                   title = title;
+               public void setTitle(String Stitle) {
+                   title = Stitle;
                }
            }
 
-           private static String toxicity;
+           private String toxicity;
 
            public String getToxicity() {
                return toxicity;
            }
 
-           public static void setToxicity(String Stoxicity) {
+           public void setToxicity(String Stoxicity) {
                toxicity = Stoxicity;
            }
        }
